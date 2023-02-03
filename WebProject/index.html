@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"
+    <title></title>
+    <link rel="stylesheet" href="css/IndexStyle.css">
+</head>
+<body>
+<div id = "main" class="body1">
+    <div class="container"> 
+        <form id = "form" action="MainPage.html">
+            <div class = "login">
+                <h1>Login</h1>
+            </div>
+            <div class="error">
+            </div>
+            <div class = "form-group">
+                    <input id = "name" type="text" required placeholder = "Enter Your Username ">
+            </div>
+            <div class = "form-group">
+                <input  id = "password" type="password" required placeholder = "Enter Your Password">
+            </div>
+            <div class = "btn">
+                <input type="submit" value="Login">
+            </div>   
+        </form>
+        <div class = "signup">
+            Don't Have An Account? <button>Signup</button> 
+        </div>
+    </div>
+
+    
+    <!-- The start of the registeration page -->
+    
+    
+
+<div class="container2">
+    <form id = "form2" action="MainPage.html">
+        <div class = "register">
+        Signup
+        </div>
+        <div class = "form-group2">
+            <input id = "first-name" type="text" required placeholder ="firstname">
+            <input id = "last-name" type="text"  placeholder = "Last Name">
+        <div class = "form-group2">
+            <input  id = "password2" type="password"  required placeholder = "Password">
+        </div>
+        <div class = "form-group2">
+            <input id = "confirmPassword2" type="password" required placeholder = "Confirm Your Password">
+        </div>
+        <div class="form-group2">
+            <input id="email" type="email" required placeholder="Email Address">
+        </div>
+        <div class="form-group2">
+            <input id="date" type="text"required placeholder="Date of Birth">
+        </div>
+        <div class="form-group2">
+            <select name="cars" id="gender" required>
+                <option value="none" selected>Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+        <div class = "btn2">
+            <input type="submit" value="Signup">
+        </div>  
+    </form>
+    <div class = "loginhere">
+        Already Have an Account?<button>login here</button> 
+    </div>
+</div>
+</div>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+        let name = document.querySelector("#name")
+        let password = document.querySelector("#password")
+        let form = document.querySelector("#form")
+        let error = document.querySelector(".error")
+        form.addEventListener("submit", (e) => {
+            if(name.value !== 'abdo' || password.value !== "1234"){
+                e.preventDefault()
+                error.innerHTML = "Wronge Username or Password"
+            }
+        })
+        $(".signup").click(function(){
+            $(".container").hide()
+            $(".container2").show()
+            $("#main").removeClass("body1")
+            $("body").addClass("body2")
+        })
+        $("#date").focus(function(){
+            $(this).attr("type", "date")
+        })
+        $("#date").blur(function(){
+            if($(this).val() === ""){
+                $(this).attr("type", "text")
+            }
+        })
+        $(".loginhere").click(function(){
+            $(".container2").hide()
+            $(".container").show()
+            $("body").removeClass("body2")
+            $("#main").addClass("body1")
+        })
+    </script>
+</body>
+</html>
